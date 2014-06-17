@@ -1,0 +1,151 @@
+<!- My first game in JS   
+   3x3 minesweeper(ver 1.0) with 2 mines
+   Number on box denotes number of mines north,south,east,west of it
+   Ananthanatarajan.S
+   May 24,2013    
+->
+<html>
+
+<head>
+<script type="text/javascript">
+var a=0,b=0,win=0;
+function reload()
+{
+ window.location.reload();
+}
+function mine()
+{
+a=Math.round(Math.random()*8)+1;
+b=Math.round(Math.random()*8)+1;
+if(a==b)
+{b=(b>8)?(b-1):(b+1);}
+}
+function check(btn)
+{  	 
+         if(btn.name==a||btn.name==b)
+   	 alert("ooops ! mine !! X(");
+	
+       
+         else
+	{   win++;
+           var cnt=0;
+	var x=btn.name;
+          
+	if(x==1)
+	{
+           if(a==2 || b==2)
+		cnt++;
+	  if(a==4 || b==4)
+		cnt++;
+	}
+	
+       if(x==4)
+	{
+           if(a==5 || b==5)
+		cnt++;
+	  if(a==7 || b==7)
+		cnt++;
+	  if(a==1 || b==1)
+		cnt++;
+	}
+
+        if(x==7)
+	{
+           if(a==8 || b==8)
+		cnt++;
+	  if(a==4 || b==4)
+		cnt++;
+	}
+         
+        if(x==2)
+	{
+           if(a==1 || b==1)
+		cnt++;
+	  if(a==3 || b==3)
+		cnt++;
+	  if(a==5 || b==5)
+		cnt++;
+	}
+ 
+	if(x==8)
+	{
+           if(a==9 || b==9)
+		cnt++;
+	  if(a==7 || b==7)
+		cnt++;
+	  if(a==5 || b==5)
+		cnt++;
+	}
+      
+	if(x==5)
+	{
+           if(a==4 || b==4)
+		cnt++;
+	  if(a==8 || b==8)
+		cnt++;
+	  if(a==2 || b==2)
+		cnt++;
+	  if(a==6 || b==6)
+		cnt++;
+	}
+         if(x==3)
+	{
+           if(a==2 || b==2)
+		cnt++;
+	  if(a==6 || b==6)
+		cnt++;
+	}
+       	 if(x==6)
+	{
+           if(a==5 || b==5)
+		cnt++;
+	  if(a==9 || b==9)
+		cnt++;
+	  if(a==3 || b==3)
+		cnt++;
+	}
+        if(x==9)
+	{
+           if(a==8 || b==8)
+		cnt++;
+	  if(a==6 || b==6)
+		cnt++;
+	}
+		
+           btn.value=cnt;
+         if(win==7)
+            alert("You win!");  
+         	
+	}
+
+}
+</script>
+</head>
+
+<body onload="mine()">
+<br><br><br><br><br>
+
+<form>
+
+&nbsp<input type="button" name="1" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="2" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="3" value=" " onclick="check(this)">
+<br>
+&nbsp<input type="button" name="4" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="5" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="6" value=" " onclick="check(this)"> 
+<br>
+&nbsp<input type="button" name="7" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="8" value=" " onclick="check(this)"> 
+&nbsp<input type="button" name="9" value=" " onclick="check(this)" > 
+<br>
+<br><br>
+<br><br>
+<br>
+&nbsp<input type="button" value="New Game" onclick="reload()">
+
+</form>
+
+</body>
+
+</html>
